@@ -30,7 +30,7 @@ resource "aws_ecr_repository_policy" "demo-repo-policy" {
 }
 
 provisioner "local-exec" {
-    command = "bash ${path.module}/bin/build.sh ${var.dockerfile_dir} ${var.ecr_repository_url}:${var.docker_image_tag}"
+    command = "bash build.sh  ${var.ecr_repository_url}:${var.docker_image_tag}"
   }
 }
 
