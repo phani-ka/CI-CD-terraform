@@ -4,11 +4,6 @@ pipeline {
     }
 
     stages {
-        stage('code clone') {
-            steps {
-           git  branch: 'master', changelog: false, poll: false, url: ''
-            }
-        }
       stage('code build') {
             steps {
             sh '/opt/maven/bin/mvn package '
