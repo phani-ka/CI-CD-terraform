@@ -40,5 +40,5 @@ resource "aws_ecr_repository_policy" "demo-repo-policy" {
 provisioner "local-exec" {
     command = "bash docker_build_push.sh  ${var.ecr_repository_url}:${var.docker_image_tag}"
   }
-}
+
 
