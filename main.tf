@@ -50,7 +50,20 @@ resource "aws_ecs_cluster" "ecs_cluster" {
 }
 resource "aws_ecs_task_definition" "task_definition" {
   family                = "worker"
-  container_definitions = data.template_file.task_definition_template.rendered
+  container_definitions = jsonencode([
+    {
+      name      = "first"
+      image     = "${aws_ecr_repository.demo-repository.repository_url}:latest"
+      cpu       = 10
+      memory    = 512
+      essential = true
+      portMappings = [
+        {
+          containerPort = 8080
+          hostPort      = 8484
+        }
+      ]
+    } ])
 }
 resource "aws_ecs_service" "worker" {
   name            = "worker"
