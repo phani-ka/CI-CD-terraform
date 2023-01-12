@@ -4,7 +4,7 @@
     "memory": 512,
     "name": "worker",
     "cpu": 2,
-    "image": "${REPOSITORY_URL}:latest",
+    "image": "${aws_ecr_repository.demo-repository.repository_url}:latest",
     "environment": []
   }
 ]
