@@ -41,7 +41,7 @@ resource "aws_ecr_repository_policy" "demo-repo-policy" {
 resource "null_resource" "push" {
   provisioner "local-exec" {
     
-    command = "bash docker_build_push.sh  ${aws_ecr_repository.demo-repository.repository_url}:latest"
+    command = "bash docker_build_push.sh  ${aws_ecr_repository.demo-repository.repository_url}:latest ${aws_ecr_repository.demo-repository.repository_url} "
   }
 
 }
