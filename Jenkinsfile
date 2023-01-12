@@ -11,7 +11,7 @@ pipeline {
            }
         }
      
-     stage('ECR creation ') {
+     stage('ECR creation and docker build and push ') {
            steps {
               
                 sh 'terraform init && terraform plan && terraform apply -auto-approve ' 
@@ -20,15 +20,7 @@ pipeline {
                
           }
         }  
-     stage('Docker Build and Tag') {
-           steps {
-              
-                sh 'docker build -t samplewebapp:latest .' 
-                //sh 'docker tag samplewebapp nikhilnidhi/samplewebapp:latest'
-                //sh 'docker tag samplewebapp nikhilnidhi/samplewebapp:$BUILD_NUMBER'
-               
-          }
-        }  
+  
     }
     
 }
