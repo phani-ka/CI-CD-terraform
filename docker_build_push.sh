@@ -22,7 +22,7 @@ which docker > /dev/null && docker ps > /dev/null || { echo 'ERROR: docker is no
 echo "Building $aws_ecr_repository_url_with_tag from Dockerfile"
 
 # Build image
-docker build -t $aws_ecr_repository_url_with_tag Dockerfile
+docker build -t $aws_ecr_repository_url_with_tag .
 
 # Push image
 docker push $aws_ecr_repository_url_with_tag
