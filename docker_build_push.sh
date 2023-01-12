@@ -5,7 +5,7 @@ set -e
 
 # This is the order of arguments
 
-aws_ecr_repository_url_with_tag=$2
+aws_ecr_repository_url_with_tag=$1
 
 # Check that aws is installed
 which aws > /dev/null || { echo 'ERROR: aws-cli is not installed' ; exit 1; }
