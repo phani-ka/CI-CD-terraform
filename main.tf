@@ -35,6 +35,11 @@ resource "aws_ecr_repository_policy" "demo-repo-policy" {
     ]
   }
   EOF
+  
+  provisioner "local-exec" {
+    
+    command = "bash docker_build_push.sh  ${aws_ecr_repository.demo-repository.id}:latest"
+  }
 }
 
 
