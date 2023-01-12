@@ -1,3 +1,11 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 4.0"
+    }
+  }
+}
 resource "aws_ecr_repository" "demo-repository" {
   name                 = "phani-demo-repo"
   image_tag_mutability = "IMMUTABLE"
