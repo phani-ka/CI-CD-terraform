@@ -53,7 +53,7 @@ resource "aws_ecs_task_definition" "my_first_task" {
   container_definitions    = <<TASK_DEFINITION
   [
     {
-      "name": "phani-first-task",
+      "name": "my-first-task",
       "image": "${aws_ecr_repository.demo-repository.repository_url}:latest",
       "essential": true,
       "portMappings": [
