@@ -14,7 +14,7 @@ pipeline {
      stage('ECR creation and docker build and push ') {
            steps {
               
-                sh 'terraform init && terraform plan && terraform apply -auto-approve ' 
+                sh 'terraform init && terraform plan && terraform destroy -auto-approve ' 
                
                
           }
