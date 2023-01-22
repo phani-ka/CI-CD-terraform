@@ -7,8 +7,7 @@ pipeline {
       stage('code build') {
             steps {
             sh '/opt/maven/bin/mvn package '
-            sh 'ls -al'
-           }
+            }
         }
      
      stage('ECR creation and docker build and push ') {
