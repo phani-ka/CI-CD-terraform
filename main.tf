@@ -49,7 +49,7 @@ resource "aws_ecs_cluster" "my_cluster" {
     name  = "phani-demo-cluster"
 }
 resource "aws_ecs_task_definition" "my_first_task" {
-  family                   = "phani-task" # Naming our first task
+  family                   = "my-first-task" # Naming our first task
   container_definitions    = <<DEFINITION
   [
     {
@@ -96,7 +96,7 @@ resource "aws_iam_role_policy_attachment" "ecsTaskExecutionRole_policy" {
 }
 
 resource "aws_ecs_service" "my_first_service" {
-  name            = "phani-service"                             # Naming our first service
+  name            = "my-first-service"                             # Naming our first service
   cluster         = "${aws_ecs_cluster.my_cluster.id}"             # Referencing our created Cluster
   task_definition = "${aws_ecs_task_definition.my_first_task.arn}" # Referencing the task our service will spin up
   launch_type     = "FARGATE"
