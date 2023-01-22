@@ -50,7 +50,7 @@ resource "aws_ecs_cluster" "my_cluster" {
 }
 resource "aws_ecs_task_definition" "my_first_task" {
   family                   = "my-first-task" # Naming our first task
-  container_definitions    = <<DEFINITION
+  container_definitions    = <<TASK_DEFINITION
   [
     {
       "name": "phani-first-task",
@@ -66,7 +66,7 @@ resource "aws_ecs_task_definition" "my_first_task" {
       "cpu": 256
     }
   ]
-  DEFINITION
+  TASK_DEFINITION
   requires_compatibilities = ["FARGATE"] # Stating that we are using ECS Fargate
   network_mode             = "awsvpc"    # Using awsvpc as our network mode as this is required for Fargate
   memory                   = 512         # Specifying the memory our container requires
