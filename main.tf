@@ -9,6 +9,7 @@ terraform {
 resource "aws_ecr_repository" "demo-repository" {
   name                 = "phani-demo-repo"
   image_tag_mutability = "IMMUTABLE"
+  force_delete = true
 }
 
 resource "aws_ecr_repository_policy" "demo-repo-policy" {
